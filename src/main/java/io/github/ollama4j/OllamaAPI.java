@@ -369,6 +369,12 @@ public class OllamaAPI {
     }
 
 
+    public OllamaResult generate(OllamaGenerateRequest ollamaRequestModel, OllamaStreamHandler streamHandler)
+            throws OllamaBaseException, IOException, InterruptedException {
+        return generateSyncForOllamaRequestModel(ollamaRequestModel, streamHandler);
+    }
+
+
     /**
      * Generate response for a question to a model running on Ollama server. This is a sync/blocking
      * call.
@@ -388,6 +394,8 @@ public class OllamaAPI {
         ollamaRequestModel.setOptions(options.getOptionsMap());
         return generateSyncForOllamaRequestModel(ollamaRequestModel, streamHandler);
     }
+
+
 
     /**
      * Generates response using the specified AI model and prompt (in blocking mode).
